@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   petal: {fileID: 919132149155446097, guid: b33d56dcc66d05c429b52d44d110b526, type: 3}
-  parentTransform: {fileID: 4559616047259153664}
-  numberOfPetals: 1
+  parentTransform: {fileID: 2689877592063927592}
+  numberOfPetals: 8
 --- !u!4 &4253214090193750786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2525695829457895732, guid: 72b05745e827d1f4a9046da2dbaf84c9, type: 3}
@@ -169,9 +169,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b0cf9f900f60be44a2ccbed6d9a4184, type: 3}
---- !u!4 &4559616047259153664 stripped
+--- !u!4 &2689877592063927592 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 730936364415552770, guid: 2b0cf9f900f60be44a2ccbed6d9a4184, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1168562092797205802, guid: 2b0cf9f900f60be44a2ccbed6d9a4184, type: 3}
   m_PrefabInstance: {fileID: 3847143233006794754}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7299898121647833146 stripped
