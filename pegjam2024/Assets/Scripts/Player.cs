@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Navigator))]
 public class Player : MonoBehaviour
 {
+    static public Player instance { get; private set; }
+
     [SerializeField]
     InputActionAsset _inputActionAsset;
     InputActionMap _inputActionMap;
@@ -23,8 +25,22 @@ public class Player : MonoBehaviour
     Coroutine _holdCoroutine;
 
     Navigator _navigator;
+
+    [SerializeField, Range(0.0f, 5.0f)]
+    float _musterDistance = 2.0f;
     
     Vector2 pointerPosition => _positionAction.ReadValue<Vector2>();
+    public Vector3 musterPoint {
+        get
+        {
+            return transform.position - transform.forward * _musterDistance;
+        }
+    }
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {

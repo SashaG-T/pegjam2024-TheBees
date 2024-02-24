@@ -15,7 +15,7 @@ public class Navigator : MonoBehaviour
     public delegate void NavigationEvent(Navigator navigator);
     public event NavigationEvent onArrived;
 
-    void Start()
+    void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
     }
