@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 637766452706209219}
   - component: {fileID: 2338987898924055932}
   - component: {fileID: 5132106887310368212}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1042722899112197581}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RoyalJellyArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,8 @@ GameObject:
   m_Component:
   - component: {fileID: 303990550096737850}
   - component: {fileID: 1899637648973384068}
-  m_Layer: 0
+  - component: {fileID: 9027307260522910070}
+  m_Layer: 13
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,6 +201,37 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 12975c7c31bce3e459ead8c610dabf91, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &9027307260522910070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8075928773139674108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 3
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: ec97dccb6cff0994482b9aca20e7ed4a, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &8836322759417949204
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +243,7 @@ GameObject:
   - component: {fileID: 1301287179082755034}
   - component: {fileID: 452494299188295482}
   - component: {fileID: 300169356657782932}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,9 +361,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
       propertyPath: m_Name
       value: honeyCombPlatform (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -403,9 +447,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 7.146
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
       propertyPath: m_Name
       value: honeyCombPlatform (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -477,9 +533,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
       propertyPath: m_Name
       value: honeyCombPlatform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -551,9 +619,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
       propertyPath: m_Name
       value: honeyCombPlatform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -625,9 +705,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
       propertyPath: m_Name
       value: honeyCombPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -699,9 +791,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 2.834
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
       propertyPath: m_Name
       value: honeyCombPlatform (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -773,9 +877,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.591
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
       propertyPath: m_Name
       value: honeyCombPlatform (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -847,9 +963,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.154
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
       propertyPath: m_Name
       value: honeyCombPlatform (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -921,9 +1049,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5824510187379060028, guid: c807883388927e0479259a4fb6ede3d4, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -391268320553695201, guid: c807883388927e0479259a4fb6ede3d4, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c807883388927e0479259a4fb6ede3d4, type: 3}
       propertyPath: m_Name
       value: BeeHive
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c807883388927e0479259a4fb6ede3d4, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365132098506396400, guid: c807883388927e0479259a4fb6ede3d4, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3735102090226358198, guid: c807883388927e0479259a4fb6ede3d4, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864342965330004576, guid: c807883388927e0479259a4fb6ede3d4, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -995,9 +1147,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4.181
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
       propertyPath: m_Name
       value: honeyCombPlatform (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1069,9 +1233,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 4.049
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
       propertyPath: m_Name
       value: honeyCombPlatform (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513859187771203891, guid: 23ac3318e9149594abbab19d7e0e0f8f, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

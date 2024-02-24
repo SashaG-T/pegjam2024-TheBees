@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Splines;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Navigator))]
 public class Player : MonoBehaviour
 {
     static public Player instance { get; private set; }
+    public const uint MaxBeeCount = 100;
 
     [SerializeField]
     InputActionAsset _inputActionAsset;
@@ -27,19 +31,15 @@ public class Player : MonoBehaviour
     Navigator _navigator;
     int _layerMask;
 
-    [SerializeField, Range(0.0f, 5.0f)]
-    float _musterDistance = 2.0f;
+    [SerializeField]
+    SplineContainer _splineContainer;
+    Coroutine _workerCoroutine;
+    WaitForSeconds _sleep = new WaitForSeconds(1);
 
     Queue<WorkerBee> _workerQueue = new Queue<WorkerBee>();
     
     Vector2 pointerPosition => _positionAction.ReadValue<Vector2>();
     WorkerBee nextBee => _workerQueue.Count > 0 ? _workerQueue.Dequeue() : null;
-    public Vector3 musterPoint {
-        get
-        {
-            return transform.position - transform.forward * _musterDistance;
-        }
-    }
 
     private void Awake()
     {
@@ -59,7 +59,6 @@ public class Player : MonoBehaviour
 
         _navigator = GetComponent<Navigator>();
         _layerMask = LayerMask.GetMask(new string[] { "BeeTarget" });
-
         _navigator.onArrived += _navigator_onArrived;
     }
 
@@ -70,6 +69,10 @@ public class Player : MonoBehaviour
 
     public void QueueWorker(WorkerBee workerBee)
     {
+        if(_workerCoroutine == null)
+        {
+            _workerCoroutine = StartCoroutine(_workerUpdateCoroutine());
+        }
         _workerQueue.Enqueue(workerBee);
     }
 
@@ -80,6 +83,14 @@ public class Player : MonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit hitInfo, 100, _layerMask))
         {
             nextBee?.SetTarget(hitInfo.collider.gameObject);
+        }
+        if(_workerQueue.Count == 0)
+        {
+            if (_workerCoroutine != null)
+            {
+                StopCoroutine(_workerCoroutine);
+                _workerCoroutine = null;
+            }
         }
     }
 
@@ -124,4 +135,21 @@ public class Player : MonoBehaviour
             yield return null;
         }
     }
+
+    IEnumerator _workerUpdateCoroutine()
+    {
+        for(; ;)
+        {
+            Spline spline = _splineContainer.Splines[0];
+            float step = 1.0f / MaxBeeCount;
+            float t = 0.0f;
+            foreach(WorkerBee bee in _workerQueue)
+            {
+                bee.SetRank(_splineContainer.transform.TransformPoint((Vector3)spline.EvaluatePosition(t)));
+                t += step;
+            }
+            yield return _sleep;
+        }
+    }
+
 }
