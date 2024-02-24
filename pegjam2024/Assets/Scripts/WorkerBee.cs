@@ -11,7 +11,7 @@ public class WorkerBee : MonoBehaviour
     GameObject _pollenGameObjects;
 
     Navigator _navigator;
-    Coroutine _queenCoroutine;
+    static uint beeCount = 0;
 
     enum State : int
     {
@@ -25,8 +25,6 @@ public class WorkerBee : MonoBehaviour
 
     Action<State>[] _enterState;
     Action<State>[] _exitState;
-
-    WaitForSeconds _sleep = new WaitForSeconds(1);
 
     void Start()
     {
@@ -49,28 +47,24 @@ public class WorkerBee : MonoBehaviour
             null
         };
 
-        SetState(State.Queen);
+        beeCount++;
+        if(beeCount >= Player.MaxBeeCount)
+        {
+            Destroy(gameObject);
+        } else
+        {
+            SetState(State.Queen);
+        }
     }
 
     void _onQueenEnter(State prevState)
     {
-        _queenCoroutine = StartCoroutine(_queenUpdate());
         Player.instance.QueueWorker(this);
-    }
-
-    IEnumerator _queenUpdate()
-    {
-        for (; ; )
-        {
-            _navigator.SetTarget(Player.instance.musterPoint);
-            yield return _sleep;
-        }
     }
 
     void _onQueenExit(State nextState)
     {
-        StopCoroutine(_queenCoroutine);
-        _queenCoroutine = null;
+
     }
 
     void _onPollenEnter(State prevState)
@@ -81,10 +75,18 @@ public class WorkerBee : MonoBehaviour
         _navigator.SetTarget(Hive.instance.transform.position);
     }
 
+    void reproduce()
+    {
+        if (beeCount < Player.MaxBeeCount)
+        {
+            Instantiate(gameObject, transform.parent);
+        }
+    }
+
     void _onPollenExit(State nextState)
     {
         _pollenGameObjects.SetActive(false);
-        Instantiate(gameObject, transform.parent);
+        reproduce();
     }
 
     void _onJellyEnter(State prevState)
@@ -104,6 +106,11 @@ public class WorkerBee : MonoBehaviour
     {
         _navigator.SetTarget(target.transform.position);
         SetState(State.Harvesting);
+    }
+
+    public void SetRank(Vector3 rank)
+    {
+        _navigator.SetTarget(rank);
     }
 
     private void OnTriggerEnter(Collider other)
