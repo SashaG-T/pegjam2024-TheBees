@@ -11,24 +11,70 @@ public class Player : MonoBehaviour
     InputActionMap _inputActionMap;
     InputAction _tapAction;
     InputAction _holdAction;
+    InputAction _positionAction;
+
+    [SerializeField]
+    Camera _camera;
+    [SerializeField]
+    GameObject _pointer;
+
+    [SerializeField]
+    Coroutine _holdCoroutine;
+    
+    Vector2 pointerPosition => _positionAction.ReadValue<Vector2>();
 
     private void Start()
     {
         _inputActionMap = _inputActionAsset.FindActionMap("Map", true);
         _tapAction = _inputActionMap.FindAction("Tap", true);
         _holdAction = _inputActionMap.FindAction("Hold", true);
+        _positionAction = _inputActionMap.FindAction("Position", true);
         _tapAction.performed += onTapActionPerformed;
-        _holdAction.performed += onHoldPerformed;
+        _holdAction.started += onHoldStarted;
+        _holdAction.canceled += onHoldCanceled;
         _inputActionMap.Enable();
     }
 
     private void onTapActionPerformed(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Tap");
+        
     }
 
-    private void onHoldPerformed(InputAction.CallbackContext ctx)
+    private void onHoldStarted(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Hold");
+        if(_holdCoroutine == null)
+        {
+            _holdCoroutine = StartCoroutine(_updatePointerCoroutine());
+        }
+    }
+
+    private void onHoldCanceled(InputAction.CallbackContext ctx)
+    {
+        StopCoroutine(_holdCoroutine);
+        _holdCoroutine = null;
+    }
+
+    private void setPointer(Vector3 position)
+    {
+        _pointer.SetActive(true);
+        _pointer.transform.position = position;
+    }
+
+    private void doRaycast()
+    {
+        Ray ray = _camera.ScreenPointToRay(pointerPosition);
+        if(Physics.Raycast(ray, out RaycastHit hitInfo))
+        {
+            setPointer(hitInfo.point);
+        }
+    }
+
+    IEnumerator _updatePointerCoroutine()
+    {
+        for (; ; )
+        {
+            doRaycast();
+            yield return null;
+        }
     }
 }
