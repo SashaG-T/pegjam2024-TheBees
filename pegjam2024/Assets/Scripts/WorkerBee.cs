@@ -93,7 +93,7 @@ public class WorkerBee : MonoBehaviour
 
     void _onJellyEnter(State prevState)
     {
-        if(reachedTarget.TryGetComponent<Loot>( out Loot lootComponent))
+        if(reachedTarget.TryGetComponent<MultiBeeTriggerableObject>( out MultiBeeTriggerableObject lootComponent))
         {
             lootComponent.QueueWorker(this);
         }
@@ -121,6 +121,11 @@ public class WorkerBee : MonoBehaviour
     public void SetRank(Vector3 rank)
     {
         _navigator.SetTarget(rank);
+    }
+
+    public void ResetBee()
+    {
+        SetState(State.Queen);
     }
 
     private void OnTriggerEnter(Collider other)

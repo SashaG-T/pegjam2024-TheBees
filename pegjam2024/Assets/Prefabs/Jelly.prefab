@@ -81,6 +81,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3447492646446589416, guid: 72b05745e827d1f4a9046da2dbaf84c9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2223523698971322309}
+    - targetCorrespondingSourceObject: {fileID: 3447492646446589416, guid: 72b05745e827d1f4a9046da2dbaf84c9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6591612369506262956}
   m_SourcePrefab: {fileID: 100100000, guid: 72b05745e827d1f4a9046da2dbaf84c9, type: 3}
 --- !u!4 &171724140683307317 stripped
 Transform:
@@ -177,6 +180,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _splineContainer: {fileID: 2223523698971322309}
+  _reachedRequiredNumberOfBees:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6591612369506262956}
+        m_TargetAssemblyTypeName: Loot, Assembly-CSharp
+        m_MethodName: ReturnToHive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   NumOfBeesRequiredToCarry: 3
 --- !u!114 &2223523698971322309
 MonoBehaviour:
@@ -303,6 +321,18 @@ MonoBehaviour:
         Knot: 1
       - Spline: 1
         Knot: 2
+--- !u!114 &6591612369506262956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060862146075151849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99ce098baef98f4aba3271746d81554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6970372986522148814
 PrefabInstance:
   m_ObjectHideFlags: 0
