@@ -224,6 +224,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Objectives
       objectReference: {fileID: 0}
+    - target: {fileID: 919879638542850023, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
+      propertyPath: NumOfBeesRequiredToCarry
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5307390454697361616, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5307390454697361616, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5307390454697361616, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
+      propertyPath: m_WalkableMask
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8558666608267190721, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
       propertyPath: m_LocalPosition.x
       value: 82.4395

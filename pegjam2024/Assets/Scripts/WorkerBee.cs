@@ -10,6 +10,8 @@ public class WorkerBee : MonoBehaviour
     [SerializeField]
     GameObject _pollenGameObjects;
 
+    private GameObject reachedTarget;
+
     Navigator _navigator;
     static uint beeCount = 0;
 
@@ -91,7 +93,15 @@ public class WorkerBee : MonoBehaviour
 
     void _onJellyEnter(State prevState)
     {
-
+        if(reachedTarget.TryGetComponent<Loot>( out Loot lootComponent))
+        {
+            lootComponent.QueueWorker(this);
+        }
+        else
+        {
+            Debug.Log("Jelly does not have loot component");
+        }
+        Debug.Log("Entered jelly");
     }
 
     void SetState(State state)
@@ -117,6 +127,7 @@ public class WorkerBee : MonoBehaviour
     {
         if(other.GetComponent<BeeTarget>() is BeeTarget beeTarget)
         {
+            reachedTarget = other.gameObject;
             switch(beeTarget.type)
             {
                 case BeeTarget.Type.Flower:

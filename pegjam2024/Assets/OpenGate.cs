@@ -23,7 +23,6 @@ public class OpenGate : MonoBehaviour
         {
             navMeshObstacle = GetComponent<NavMeshObstacle>();
         }
-        SetDoorOpen(false);
     }
 
     private void SetDoorOpen(bool openState)

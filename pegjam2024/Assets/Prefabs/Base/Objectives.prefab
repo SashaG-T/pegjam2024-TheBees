@@ -44,15 +44,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 171724140683307317, guid: 34c9f510ddfd330489daa89c5d00bebb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.356781
+      value: 13.34
       objectReference: {fileID: 0}
     - target: {fileID: 171724140683307317, guid: 34c9f510ddfd330489daa89c5d00bebb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.569912
+      value: -14.45
       objectReference: {fileID: 0}
     - target: {fileID: 171724140683307317, guid: 34c9f510ddfd330489daa89c5d00bebb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.9499207
+      value: 19.25
       objectReference: {fileID: 0}
     - target: {fileID: 171724140683307317, guid: 34c9f510ddfd330489daa89c5d00bebb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -85,6 +85,10 @@ PrefabInstance:
     - target: {fileID: 1060862146075151849, guid: 34c9f510ddfd330489daa89c5d00bebb, type: 3}
       propertyPath: m_Name
       value: Jelly
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127435107818956761, guid: 34c9f510ddfd330489daa89c5d00bebb, type: 3}
+      propertyPath: _type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

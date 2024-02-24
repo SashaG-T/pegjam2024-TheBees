@@ -52,7 +52,6 @@ public class PetalSpawner : MonoBehaviour
             petalsToSkip.Add(petalToSkipIndex);
             j++;
         }
-        Debug.Log(petalsToSkip);
         int colorIndex = Random.Range(0, colors.Length);
         for (int i = 0; i < 8; i++) 
         {
