@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Xml.Serialization;
 
 [RequireComponent(typeof(Navigator))]
 public class WorkerBee : MonoBehaviour
@@ -16,7 +17,7 @@ public class WorkerBee : MonoBehaviour
     {
         Idle        = 0, //not doing anything
         Queen       = 1, //following queen
-        Harvesting  = 2, //heading towards a flower
+        Harvesting  = 2, //heading towards a flower or jelly
         Pollen      = 3, //returning pollen to hive
         Jelly       = 4 //carry jelly back to hive
     }
@@ -35,7 +36,7 @@ public class WorkerBee : MonoBehaviour
         {
             null,
             _onQueenEnter,
-            _onHarvestingEnter,
+            null,
             _onPollenEnter,
             _onJellyEnter
         };
@@ -44,7 +45,7 @@ public class WorkerBee : MonoBehaviour
             null,
             _onQueenExit,
             null,
-            null,
+            _onPollenExit,
             null
         };
 
@@ -54,6 +55,7 @@ public class WorkerBee : MonoBehaviour
     void _onQueenEnter(State prevState)
     {
         _queenCoroutine = StartCoroutine(_queenUpdate());
+        Player.instance.QueueWorker(this);
     }
 
     IEnumerator _queenUpdate()
@@ -71,11 +73,6 @@ public class WorkerBee : MonoBehaviour
         _queenCoroutine = null;
     }
 
-    void _onHarvestingEnter(State prevState)
-    {
-
-    }
-
     void _onPollenEnter(State prevState)
     {
         _pollenGameObjects.SetActive(true);
@@ -87,6 +84,7 @@ public class WorkerBee : MonoBehaviour
     void _onPollenExit(State nextState)
     {
         _pollenGameObjects.SetActive(false);
+        Instantiate(gameObject, transform.parent);
     }
 
     void _onJellyEnter(State prevState)
@@ -100,5 +98,39 @@ public class WorkerBee : MonoBehaviour
         _state = state;
         _exitState[(int)prevState]?.Invoke(state);
         _enterState[(int)state]?.Invoke(prevState);
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        _navigator.SetTarget(target.transform.position);
+        SetState(State.Harvesting);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.GetComponent<BeeTarget>() is BeeTarget beeTarget)
+        {
+            switch(beeTarget.type)
+            {
+                case BeeTarget.Type.Flower:
+                {
+                    SetState(State.Pollen);
+                    break;
+                }
+                case BeeTarget.Type.Jelly:
+                {
+                    SetState(State.Jelly);
+                    break;
+                }
+                default:
+                {
+                    Debug.LogError("Type doesn't exist?");
+                    break;
+                }
+            }
+        } else if(other.GetComponent<Hive>() is Hive hive)
+        {
+            SetState(State.Queen);
+        }
     }
 }
