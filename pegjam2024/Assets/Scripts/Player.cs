@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Navigator))]
 public class Player : MonoBehaviour
 {
     [SerializeField]
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     Coroutine _holdCoroutine;
+
+    Navigator _navigator;
     
     Vector2 pointerPosition => _positionAction.ReadValue<Vector2>();
 
@@ -33,11 +36,13 @@ public class Player : MonoBehaviour
         _holdAction.started += onHoldStarted;
         _holdAction.canceled += onHoldCanceled;
         _inputActionMap.Enable();
+
+        _navigator = GetComponent<Navigator>();
     }
 
     private void onTapActionPerformed(InputAction.CallbackContext ctx)
     {
-        
+        //deploy a bee!
     }
 
     private void onHoldStarted(InputAction.CallbackContext ctx)
@@ -58,6 +63,7 @@ public class Player : MonoBehaviour
     {
         _pointer.SetActive(true);
         _pointer.transform.position = position;
+        _navigator.SetTarget(position);
     }
 
     private void doRaycast()
