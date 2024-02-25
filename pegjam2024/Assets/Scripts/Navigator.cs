@@ -24,7 +24,13 @@ public class Navigator : MonoBehaviour
     {
         if (_navMeshAgent.enabled)
         {
-            _navMeshAgent.destination = position;
+            try
+            {
+                _navMeshAgent.destination = position;
+            } catch(System.Exception e)
+            {
+                transform.position = position;
+            }
             _navigating = true;
         }
     }

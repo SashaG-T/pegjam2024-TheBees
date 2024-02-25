@@ -198,4 +198,11 @@ public class WorkerBee : MonoBehaviour
             agent.enabled = true;
         }
     }
+
+    public void Move(Transform pos)
+    {
+        _agent.enabled = false;
+        transform.position = pos.position;
+        _agent.enabled = true;
+    }
 }
