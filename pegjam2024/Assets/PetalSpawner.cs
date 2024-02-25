@@ -24,6 +24,9 @@ public class PetalSpawner : MonoBehaviour
     [SerializeField]
     private int numberOfPetals = 1;
 
+    List<GameObject> petals = new();
+
+
     /// <summary>
     /// Spawns flower petals in even intervals around the flowers core, each flower is assigned a random color for the petals
     /// </summary>
@@ -71,7 +74,21 @@ public class PetalSpawner : MonoBehaviour
             newPetal.transform.Rotate(0, (360 / 8) * i, 0);
             newPetal.gameObject.GetComponent<Renderer>().material.color = colors[colorIndex];
             newPetal.transform.localPosition = Vector3.zero;
+            petals.Add(newPetal);
+        }
+    }
 
+    public bool hasPetals()
+    {
+        return petals.Count > 0;
+    }
+
+    public void removePetal()
+    {
+        if(petals.Count > 0)
+        {
+            petals[0].SetActive(false);
+            petals.RemoveAt(0);
         }
     }
 }

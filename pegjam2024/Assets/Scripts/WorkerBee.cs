@@ -12,7 +12,7 @@ public class WorkerBee : MonoBehaviour
     GameObject _pollenGameObjects;
 
     private GameObject reachedTarget;
-
+    private GameObject _harvestTarget;
     private Transform parent;
 
     Navigator _navigator;
@@ -120,6 +120,7 @@ public class WorkerBee : MonoBehaviour
     {
         Debug.Log("Target set on bee");
         _navigator.SetTarget(target.transform.position);
+        _harvestTarget = target;
         SetState(State.Harvesting);
     }
 
@@ -136,19 +137,32 @@ public class WorkerBee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<BeeTarget>() is BeeTarget beeTarget)
+        if(other.GetComponent<BeeTarget>() is BeeTarget beeTarget && _state == State.Harvesting && _harvestTarget == other.gameObject)
         {
             reachedTarget = other.gameObject;
             switch(beeTarget.type)
             {
                 case BeeTarget.Type.Flower:
                 {
-                    SetState(State.Pollen);
+                    if(other.GetComponent<PetalSpawner>() is PetalSpawner petalSpawner && petalSpawner.hasPetals())
+                    {
+                        petalSpawner.removePetal();
+                        SetState(State.Pollen);
+                    } else
+                    {
+                        SetState(State.Queen);
+                    }
                     break;
                 }
                 case BeeTarget.Type.Jelly:
                 {
-                    SetState(State.Jelly);
+                    if (other.GetComponent<MultiBeeTriggerableObject>() is MultiBeeTriggerableObject mbto && !mbto.full())
+                    {
+                        SetState(State.Jelly);
+                    } else
+                    {
+                        SetState(State.Queen);
+                    }
                     break;
                 }
                 default:

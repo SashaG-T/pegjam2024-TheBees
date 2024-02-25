@@ -4,6 +4,7 @@ using UnityEngine.Splines;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using System;
 
 
 public class MultiBeeTriggerableObject : MonoBehaviour
@@ -60,5 +61,10 @@ public class MultiBeeTriggerableObject : MonoBehaviour
         }
         _workerList.Clear();
         attatchedBeeCount = 0;
+    }
+
+    public bool full()
+    {
+        return attatchedBeeCount == NumOfBeesRequiredToCarry;
     }
 }
