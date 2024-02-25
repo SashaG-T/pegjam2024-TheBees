@@ -15,7 +15,7 @@ public class MultiBeeTriggerableObject : MonoBehaviour
     public delegate void ReachedThresholdEvent();
     public event ReachedThresholdEvent reachedRequiredNumberOfBees;
 
-    List<WorkerBee> _workerList = new List<WorkerBee>();
+    public List<WorkerBee> _workerList = new List<WorkerBee>();
 
     [SerializeField]
     private int NumOfBeesRequiredToCarry = 15;
@@ -50,7 +50,6 @@ public class MultiBeeTriggerableObject : MonoBehaviour
             reachedRequiredNumberOfBees?.Invoke();
         }
     }
-
 
     public void ReleaseBees()
     {

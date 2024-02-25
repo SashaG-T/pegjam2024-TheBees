@@ -14,6 +14,7 @@ public class WorkerBee : MonoBehaviour
     private GameObject reachedTarget;
     private GameObject _harvestTarget;
     private Transform parent;
+    private NavMeshAgent _agent;
 
     Navigator _navigator;
     static uint beeCount = 0;
@@ -34,6 +35,8 @@ public class WorkerBee : MonoBehaviour
     void Start()
     {
         parent = transform.parent;
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.enabled = true;
         _navigator = GetComponent<Navigator>();
         _pollenGameObjects.SetActive(false);
         _enterState = new Action<State>[]
@@ -81,11 +84,12 @@ public class WorkerBee : MonoBehaviour
         _navigator.SetTarget(Hive.instance.transform.position);
     }
 
-    void reproduce()
+    public void reproduce()
     {
         if (beeCount < Player.MaxBeeCount)
         {
-            Instantiate(gameObject, transform.parent);
+            GameObject newBee = Instantiate(gameObject, parent);
+            newBee.transform.position = transform.position;
         }
     }
 

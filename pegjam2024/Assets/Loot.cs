@@ -29,6 +29,10 @@ public class Loot : MonoBehaviour
 
     private void ReachedHive(Navigator navigator)
     {
+        foreach(WorkerBee bee in _triggerableObject._workerList)
+        {
+            bee.reproduce();
+        }
         _triggerableObject.ReleaseBees();
         this.gameObject.SetActive(false);
     }
