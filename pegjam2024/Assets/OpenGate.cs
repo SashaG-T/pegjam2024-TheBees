@@ -35,8 +35,9 @@ public class OpenGate : MonoBehaviour
 
     private void SetDoorOpen()
     {
+        Debug.Log("Opening gate");
         isOpen = true;
         navMeshObstacle.enabled = false;
-        animator.SetBool("Open", isOpen);
+        animator.SetBool("Open", true);
     }
 }

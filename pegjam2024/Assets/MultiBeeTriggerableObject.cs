@@ -46,6 +46,7 @@ public class MultiBeeTriggerableObject : MonoBehaviour
         }
         if (attatchedBeeCount >= NumOfBeesRequiredToCarry)
         {
+            Debug.Log("Required number of bees reached");
             reachedRequiredNumberOfBees?.Invoke();
         }
     }
