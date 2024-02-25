@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     InputAction _positionAction;
 
     [SerializeField]
-    Camera _camera;
+    public Camera _camera;
     [SerializeField]
     GameObject _pointer;
 

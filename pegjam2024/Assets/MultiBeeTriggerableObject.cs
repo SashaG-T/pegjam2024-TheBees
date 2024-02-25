@@ -17,6 +17,8 @@ public class MultiBeeTriggerableObject : MonoBehaviour
     public event TriggerEvent reachedRequiredNumberOfBees;
     public event TriggerEvent2 beesReleased;
 
+    Counter _counter;
+
 
     List<WorkerBee> _workerList = new List<WorkerBee>();
 
@@ -38,6 +40,9 @@ public class MultiBeeTriggerableObject : MonoBehaviour
     private void Start()
     {
         _allTriggers.Add(this);
+        _counter = GetComponentInChildren<Counter>();
+        _counter.count = 0;
+        _counter.required = NumOfBeesRequiredToCarry;
     }
     private void OnDestroy()
     {
@@ -60,6 +65,7 @@ public class MultiBeeTriggerableObject : MonoBehaviour
     private void BeeArrivedAtPosition(Navigator navigator)
     {
         attatchedBeeCount++;
+        _counter.count = attatchedBeeCount;
         navigator.onArrived -= BeeArrivedAtPosition;
         if (navigator.TryGetComponent<WorkerBee>(out WorkerBee workerBee)) 
         {
@@ -83,6 +89,7 @@ public class MultiBeeTriggerableObject : MonoBehaviour
         beesReleased?.Invoke(_workerList);
         _workerList.Clear();
         attatchedBeeCount = 0;
+        _counter.count = 0;
     }
 
     public bool full()
