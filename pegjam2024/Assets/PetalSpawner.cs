@@ -23,6 +23,8 @@ public class PetalSpawner : MonoBehaviour
     Transform parentTransform;
     [SerializeField]
     private int numberOfPetals = 1;
+    [SerializeField]
+    private AudioSource petalCollect;
 
     List<GameObject> petals = new();
 
@@ -89,6 +91,7 @@ public class PetalSpawner : MonoBehaviour
         {
             petals[0].SetActive(false);
             petals.RemoveAt(0);
+            petalCollect.Play();
         }
     }
 }

@@ -119,6 +119,19 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &565458074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2168689834566362438, guid: 6d1628bef52ad4f46bf9d583b4d417a3, type: 3}
+  m_PrefabInstance: {fileID: 5584512082210087830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &565458081
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565458074}
+  m_Enabled: 1
 --- !u!4 &693163980 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8558666608267190721, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
@@ -340,6 +353,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!82 &1839495724 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8790711993183957991, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
+  m_PrefabInstance: {fileID: 3400122896512065967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1839495725 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6794716705585117499, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
+  m_PrefabInstance: {fileID: 3400122896512065967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3400122896512065967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -364,6 +387,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -12.99
       objectReference: {fileID: 0}
+    - target: {fileID: 4204839414675031395, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
+      propertyPath: openGate
+      value: 
+      objectReference: {fileID: 1839495725}
+    - target: {fileID: 4204839414675031395, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
+      propertyPath: closeGate
+      value: 
+      objectReference: {fileID: 1839495724}
     - target: {fileID: 4901646967315864418, guid: 6e26bc1373547584aab682ebdf82e444, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.39
@@ -493,7 +524,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2168689834566362438, guid: 6d1628bef52ad4f46bf9d583b4d417a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 565458081}
   m_SourcePrefab: {fileID: 100100000, guid: 6d1628bef52ad4f46bf9d583b4d417a3, type: 3}
 --- !u!1001 &6309881763319780905
 PrefabInstance:

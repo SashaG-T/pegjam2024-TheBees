@@ -20,6 +20,9 @@ public class WorkerBee : MonoBehaviour
     Navigator _navigator;
     static uint beeCount = 0;
 
+    [SerializeField]
+    private AudioSource beeSpawnSound;
+    
     enum State : int
     {
         Idle        = 0, //not doing anything
@@ -93,6 +96,7 @@ public class WorkerBee : MonoBehaviour
             newBee.GetComponent<NavMeshAgent>().enabled = false;
             newBee.transform.position = transform.position;
             newBee.GetComponent<NavMeshAgent>().enabled = true;
+            beeSpawnSound.Play();
         }
     }
 
@@ -210,6 +214,7 @@ public class WorkerBee : MonoBehaviour
     public void Detatch()
     {
         transform.SetParent(parent);
+        transform.position = Player.instance.transform.position;
         if (TryGetComponent<NavMeshAgent>(out NavMeshAgent agent))
         {
             agent.enabled = true;
