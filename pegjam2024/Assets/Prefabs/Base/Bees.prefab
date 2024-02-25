@@ -88,6 +88,7 @@ MonoBehaviour:
   _inputActionAsset: {fileID: -944628639613478452, guid: 26a4f3323b5b68a41bb696ce972e3603, type: 3}
   _camera: {fileID: 4929708258039382647}
   _pointer: {fileID: 7310166666698224569}
+  _TerrainLayerMask: 13
   _splineContainer: {fileID: 1053914996029923674}
 --- !u!195 &8216874012820896764
 NavMeshAgent:
