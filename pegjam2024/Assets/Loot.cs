@@ -21,7 +21,14 @@ public class Loot : MonoBehaviour
 
         _triggerableObject.reachedRequiredNumberOfBees += ReturnToHive;
         _navigator.onArrived += ReachedHive;
+        _triggerableObject.beesReleased += _triggerableObject_beesReleased;
     }
+
+    private void _triggerableObject_beesReleased(List<WorkerBee> bees)
+    {
+        _navigator.SetTarget(transform.position);
+    }
+
     private void ReturnToHive()
     {
         _navigator.SetTarget(Hive.instance.transform.position);
@@ -29,10 +36,6 @@ public class Loot : MonoBehaviour
 
     private void ReachedHive(Navigator navigator)
     {
-        foreach(WorkerBee bee in _triggerableObject._workerList)
-        {
-            bee.reproduce();
-        }
         _triggerableObject.ReleaseBees();
         this.gameObject.SetActive(false);
     }

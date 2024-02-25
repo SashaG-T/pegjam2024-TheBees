@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         _inputActionMap.Enable();
 
         _navigator = GetComponent<Navigator>();
-        _layerMask = LayerMask.GetMask(new string[] { "BeeTarget" });
+        _layerMask = LayerMask.GetMask(new string[] { "BeeTarget", "QueenBee" });
         _TerrainLayerMask = LayerMask.GetMask(new string[] { "Terrain" });
         _navigator.onArrived += _navigator_onArrived;
     }
@@ -84,9 +84,16 @@ public class Player : MonoBehaviour
     {
         //deploy a bee!
         Ray ray = _camera.ScreenPointToRay(pointerPosition);
-        if(Physics.Raycast(ray, out RaycastHit hitInfo, 100, _layerMask))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100, _layerMask))
         {
-            nextBee?.SetTarget(hitInfo.collider.gameObject);
+            if (hitInfo.collider.gameObject == gameObject)
+            {
+                MultiBeeTriggerableObject.ReleaseAllBees();
+            }
+            else
+            {
+                nextBee?.SetTarget(hitInfo.collider.gameObject);
+            }
         }
         if(_workerQueue.Count == 0)
         {

@@ -12,16 +12,37 @@ public class MultiBeeTriggerableObject : MonoBehaviour
     [SerializeField]
     SplineContainer _splineContainer;
 
-    public delegate void ReachedThresholdEvent();
-    public event ReachedThresholdEvent reachedRequiredNumberOfBees;
+    public delegate void TriggerEvent();
+    public delegate void TriggerEvent2(List<WorkerBee> beeList);
+    public event TriggerEvent reachedRequiredNumberOfBees;
+    public event TriggerEvent2 beesReleased;
 
-    public List<WorkerBee> _workerList = new List<WorkerBee>();
+
+    List<WorkerBee> _workerList = new List<WorkerBee>();
 
     [SerializeField]
     private int NumOfBeesRequiredToCarry = 15;
 
     private int attatchedBeeCount = 0;
 
+    static List<MultiBeeTriggerableObject> _allTriggers = new List<MultiBeeTriggerableObject>();
+
+    public static void ReleaseAllBees()
+    {
+        foreach(var t in _allTriggers)
+        {
+            t.ReleaseBees();
+        }
+    }
+
+    private void Start()
+    {
+        _allTriggers.Add(this);
+    }
+    private void OnDestroy()
+    {
+        _allTriggers.Remove(this);
+    }
 
     public void QueueWorker(WorkerBee workerBee)
     {
@@ -51,14 +72,15 @@ public class MultiBeeTriggerableObject : MonoBehaviour
         }
     }
 
+
     public void ReleaseBees()
     {
         foreach (WorkerBee bee in _workerList)
         {
             bee.ResetBee();
-            bee.Detatch();
             
         }
+        beesReleased?.Invoke(_workerList);
         _workerList.Clear();
         attatchedBeeCount = 0;
     }
