@@ -137,9 +137,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6998888067459783369, guid: 25ecdd46b63ca36439b13ae29fb0f759, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2550480537180999052}
-    - targetCorrespondingSourceObject: {fileID: -6998888067459783369, guid: 25ecdd46b63ca36439b13ae29fb0f759, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7217110832207723633}
   m_SourcePrefab: {fileID: 100100000, guid: 25ecdd46b63ca36439b13ae29fb0f759, type: 3}
 --- !u!4 &7542193042766669839 stripped
 Transform:
@@ -281,7 +278,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8214299104582052563}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4451b5d29a072434f87c628d86b9e12c, type: 2}
   m_CullingMode: 0
@@ -323,7 +320,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4882288486530053057}
   navMeshObstacle: {fileID: 1991800185004025550}
-  anim: {fileID: 7217110832207723633}
 --- !u!114 &2550480537180999052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,21 +333,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
---- !u!111 &7217110832207723633
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8214299104582052563}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 437e242e94b69cf4581d621dcb52e62c, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 437e242e94b69cf4581d621dcb52e62c, type: 2}
-  - {fileID: 7400000, guid: a5d43faafdb0c0147922788eca41e45a, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
