@@ -16,50 +16,49 @@ public class MultiBeeTriggerableObject : MonoBehaviour
 
     List<WorkerBee> _workerList = new List<WorkerBee>();
 
-    public const uint MaxBeeCount = 100;
-
     [SerializeField]
     private int NumOfBeesRequiredToCarry = 15;
 
-    Coroutine _workerCoroutine;
-    WaitForSeconds _sleep = new WaitForSeconds(1);
+    private int attatchedBeeCount = 0;
+
 
     public void QueueWorker(WorkerBee workerBee)
     {
-        if (_workerCoroutine == null)
+        Spline spline = _splineContainer.Splines[0];
+        workerBee.SetRank(_splineContainer.transform.TransformPoint((Vector3)spline.EvaluatePosition((float)_workerList.Count / NumOfBeesRequiredToCarry)));
+        if (workerBee.TryGetComponent<Navigator>(out Navigator navigator))
         {
-            _workerCoroutine = StartCoroutine(_workerUpdateCoroutine());
+            navigator.onArrived += BeeArrivedAtPosition;
         }
         _workerList.Add(workerBee);
         Debug.Log("Workers carrying loot, " + _workerList.Count);
-        if (_workerList.Count >= NumOfBeesRequiredToCarry)
+
+    }
+
+    private void BeeArrivedAtPosition(Navigator navigator)
+    {
+        attatchedBeeCount++;
+        navigator.onArrived -= BeeArrivedAtPosition;
+        if (navigator.TryGetComponent<WorkerBee>(out WorkerBee workerBee)) 
         {
-            reachedRequiredNumberOfBees.Invoke();
+            workerBee.AttachTo(transform);
+        }
+        if (attatchedBeeCount >= NumOfBeesRequiredToCarry)
+        {
+            reachedRequiredNumberOfBees?.Invoke();
         }
     }
 
-    IEnumerator _workerUpdateCoroutine()
-    {
-        for (; ; )
-        {
-            Spline spline = _splineContainer.Splines[0];
-            float step = 1.0f / MaxBeeCount;
-            float t = 0.0f;
-            foreach (WorkerBee bee in _workerList)
-            {
-                bee.SetRank(_splineContainer.transform.TransformPoint((Vector3)spline.EvaluatePosition(t)));
-                t += step;
-            }
-            yield return _sleep;
-        }
-    }
 
     public void ReleaseBees()
     {
-        foreach(WorkerBee bee in _workerList)
+        foreach (WorkerBee bee in _workerList)
         {
-           bee.ResetBee();
+            bee.ResetBee();
+            bee.Detatch();
+            
         }
         _workerList.Clear();
+        attatchedBeeCount = 0;
     }
 }

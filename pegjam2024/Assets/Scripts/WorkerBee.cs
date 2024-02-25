@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Xml.Serialization;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(Navigator))]
 public class WorkerBee : MonoBehaviour
@@ -11,6 +12,8 @@ public class WorkerBee : MonoBehaviour
     GameObject _pollenGameObjects;
 
     private GameObject reachedTarget;
+
+    private Transform parent;
 
     Navigator _navigator;
     static uint beeCount = 0;
@@ -30,6 +33,7 @@ public class WorkerBee : MonoBehaviour
 
     void Start()
     {
+        parent = transform.parent;
         _navigator = GetComponent<Navigator>();
         _pollenGameObjects.SetActive(false);
         _enterState = new Action<State>[]
@@ -128,6 +132,7 @@ public class WorkerBee : MonoBehaviour
         SetState(State.Queen);
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<BeeTarget>() is BeeTarget beeTarget)
@@ -154,6 +159,24 @@ public class WorkerBee : MonoBehaviour
         } else if(other.GetComponent<Hive>() is Hive hive)
         {
             SetState(State.Queen);
+        }
+    }
+
+    public void AttachTo(Transform newParent)
+    {
+        transform.SetParent(newParent);
+        if(TryGetComponent<NavMeshAgent>(out NavMeshAgent agent))
+        {
+            agent.enabled = false;
+        }
+    }
+
+    public void Detatch()
+    {
+        transform.SetParent(parent);
+        if (TryGetComponent<NavMeshAgent>(out NavMeshAgent agent))
+        {
+            agent.enabled = true;
         }
     }
 }

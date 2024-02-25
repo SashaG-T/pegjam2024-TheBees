@@ -30,6 +30,7 @@ public class Loot : MonoBehaviour
     private void ReachedHive(Navigator navigator)
     {
         _triggerableObject.ReleaseBees();
+        this.gameObject.SetActive(false);
     }
 
 }

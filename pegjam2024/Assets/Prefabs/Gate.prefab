@@ -77,6 +77,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 25ecdd46b63ca36439b13ae29fb0f759, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6518694484416234072}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 25ecdd46b63ca36439b13ae29fb0f759, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6687598816227368546}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 25ecdd46b63ca36439b13ae29fb0f759, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4225795826219999473}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 25ecdd46b63ca36439b13ae29fb0f759, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 145189706457071940}
   m_SourcePrefab: {fileID: 100100000, guid: 25ecdd46b63ca36439b13ae29fb0f759, type: 3}
 --- !u!1 &3039023993995109120 stripped
 GameObject:
@@ -135,3 +144,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &6687598816227368546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039023993995109120}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.25, y: 14.32, z: 3.33}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4225795826219999473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039023993995109120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d172c0506c1e54d97a0d88aba84056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+--- !u!114 &145189706457071940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039023993995109120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70a93ab086cc3040809d2d4fb8a8085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _splineContainer: {fileID: 0}
+  NumOfBeesRequiredToCarry: 10

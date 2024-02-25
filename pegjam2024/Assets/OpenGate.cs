@@ -11,7 +11,15 @@ public class OpenGate : MonoBehaviour
     [SerializeField]
     private NavMeshObstacle navMeshObstacle;
 
+    private MultiBeeTriggerableObject triggerableObject;
+
     private bool isOpen = false;
+
+    private void Awake()
+    {
+        triggerableObject = GetComponent<MultiBeeTriggerableObject>();
+        triggerableObject.reachedRequiredNumberOfBees += ToggleDoor;
+    }
 
     private void Start()
     {

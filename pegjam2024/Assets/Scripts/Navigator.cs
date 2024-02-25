@@ -22,8 +22,11 @@ public class Navigator : MonoBehaviour
 
     public void SetTarget(Vector3 position)
     {
-        _navMeshAgent.destination = position;
-        _navigating = true;
+        if (_navMeshAgent.enabled)
+        {
+            _navMeshAgent.destination = position;
+            _navigating = true;
+        }
     }
 
     private void Update()
