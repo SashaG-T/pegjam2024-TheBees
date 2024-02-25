@@ -118,6 +118,7 @@ public class WorkerBee : MonoBehaviour
 
     public void SetTarget(GameObject target)
     {
+        Debug.Log("Target set on bee");
         _navigator.SetTarget(target.transform.position);
         SetState(State.Harvesting);
     }

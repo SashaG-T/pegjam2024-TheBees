@@ -10,7 +10,7 @@ public class OpenGate : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private NavMeshObstacle navMeshObstacle;
-
+   
     private MultiBeeTriggerableObject triggerableObject;
 
     private bool isOpen = false;
@@ -18,7 +18,7 @@ public class OpenGate : MonoBehaviour
     private void Awake()
     {
         triggerableObject = GetComponent<MultiBeeTriggerableObject>();
-        triggerableObject.reachedRequiredNumberOfBees += ToggleDoor;
+        triggerableObject.reachedRequiredNumberOfBees += SetDoorOpen;
     }
 
     private void Start()
@@ -33,18 +33,10 @@ public class OpenGate : MonoBehaviour
         }
     }
 
-    private void SetDoorOpen(bool openState)
+    private void SetDoorOpen()
     {
-        isOpen = openState;
-        navMeshObstacle.enabled = !isOpen;
-        animator.SetBool("Open", isOpen);
-    }
-
-    private void ToggleDoor()
-    {
-        Debug.Log("Changing door state");
-        isOpen = !isOpen;
-        navMeshObstacle.enabled = isOpen;
+        isOpen = true;
+        navMeshObstacle.enabled = false;
         animator.SetBool("Open", isOpen);
     }
 }
