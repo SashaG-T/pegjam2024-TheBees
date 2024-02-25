@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -43,12 +44,25 @@ public class Navigator : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject == Hive.instance)
+        {
+
+        }
+    }
+
     void CheckIfComplete()
     {
         if(_navMeshAgent.hasPath && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance + _pathEndThreshold)
         {
-            onArrived?.Invoke(this);
-            _navigating = false;
+            Debug.Log(Vector3.Distance(_navMeshAgent.destination, this.transform.position));
+            if(Vector3.Distance(_navMeshAgent.destination, this.transform.position) <= 0.5)
+            {
+                onArrived?.Invoke(this);
+                _navigating = false;
+            }
+
         }
     }
 

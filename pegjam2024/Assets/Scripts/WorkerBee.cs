@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Xml.Serialization;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Navigator))]
 public class WorkerBee : MonoBehaviour
@@ -81,7 +82,7 @@ public class WorkerBee : MonoBehaviour
         _pollenGameObjects.SetActive(true);
         _pollenGameObjects.transform.localRotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
 
-        _navigator.SetTarget(Hive.instance.transform.position);
+        _navigator.SetTarget(Hive.instance.TargetPosition.position);
     }
 
     public void reproduce()
@@ -133,9 +134,23 @@ public class WorkerBee : MonoBehaviour
         _navigator.SetTarget(rank);
     }
 
+    private void Update()
+    {
+        if(this.transform.position.y < 0)
+        {
+            _agent.enabled = false;
+            this.transform.position = Player.instance.transform.position;
+            _agent.enabled = true;
+        }
+    }
+
     public void ResetBee()
     {
-        SetState(State.Queen);
+        if(_state == State.Jelly)
+        {
+            Detatch();
+            SetState(State.Queen);
+        }
     }
 
 

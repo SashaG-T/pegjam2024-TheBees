@@ -31,12 +31,19 @@ public class Loot : MonoBehaviour
 
     private void ReturnToHive()
     {
-        _navigator.SetTarget(Hive.instance.transform.position);
+        _navigator.SetTarget(Hive.instance.TargetPosition.transform.position);
     }
 
     private void ReachedHive(Navigator navigator)
     {
+        Debug.Log("Reached hive");
         _triggerableObject.ReleaseBees();
+        StartCoroutine(WaitToSetInactive());
+    }
+
+    IEnumerator WaitToSetInactive()
+    {
+        yield return new WaitForEndOfFrame();
         this.gameObject.SetActive(false);
     }
 
