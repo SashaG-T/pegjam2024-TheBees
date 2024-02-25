@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,8 +11,6 @@ public class OpenGate : MonoBehaviour
     private NavMeshObstacle navMeshObstacle;
    
     private MultiBeeTriggerableObject triggerableObject;
-
-    private bool isOpen = false;
 
     private void Awake()
     {
@@ -36,7 +33,6 @@ public class OpenGate : MonoBehaviour
     private void SetDoorOpen()
     {
         Debug.Log("Opening gate");
-        isOpen = true;
         navMeshObstacle.enabled = false;
         animator.SetBool("Open", true);
     }

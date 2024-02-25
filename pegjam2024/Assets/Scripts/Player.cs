@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
     int _layerMask;
 
     [SerializeField]
+    private int _TerrainLayerMask = 13;
+
+    [SerializeField]
     SplineContainer _splineContainer;
     Coroutine _workerCoroutine;
     WaitForSeconds _sleep = new WaitForSeconds(1);
@@ -59,6 +62,7 @@ public class Player : MonoBehaviour
 
         _navigator = GetComponent<Navigator>();
         _layerMask = LayerMask.GetMask(new string[] { "BeeTarget" });
+        _TerrainLayerMask = LayerMask.GetMask(new string[] { "Terrain" });
         _navigator.onArrived += _navigator_onArrived;
     }
 
@@ -121,7 +125,7 @@ public class Player : MonoBehaviour
     private void doRaycast()
     {
         Ray ray = _camera.ScreenPointToRay(pointerPosition);
-        if(Physics.Raycast(ray, out RaycastHit hitInfo))
+        if(Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, _TerrainLayerMask))
         {
             setPointer(hitInfo.point);
         }
