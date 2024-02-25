@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4916775190686543041}
   - component: {fileID: 2939890994230891716}
   - component: {fileID: 6989691004568473215}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Worker Bee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3877430774724905218}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -57,7 +57,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!114 &7184090446044045218
 MonoBehaviour:
@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6119589141004799143}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pollen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,6 +236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pollen (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2887169662804121595, guid: 84b1666a2af63bd478296bea9f727729, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -254,9 +258,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 813779043491331847}
     m_Modifications:
+    - target: {fileID: 554222650502937441, guid: 9cc6045d447e17843be9d5b16ccfa211, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050959583511857010, guid: 9cc6045d447e17843be9d5b16ccfa211, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220169531953538420, guid: 9cc6045d447e17843be9d5b16ccfa211, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1703455655091202625, guid: 9cc6045d447e17843be9d5b16ccfa211, type: 3}
       propertyPath: m_Name
       value: Bee
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703455655091202625, guid: 9cc6045d447e17843be9d5b16ccfa211, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2082971212105330939, guid: 9cc6045d447e17843be9d5b16ccfa211, type: 3}
       propertyPath: m_LocalPosition.x
@@ -297,6 +317,14 @@ PrefabInstance:
     - target: {fileID: 2082971212105330939, guid: 9cc6045d447e17843be9d5b16ccfa211, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184641855169828608, guid: 9cc6045d447e17843be9d5b16ccfa211, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047388248966207221, guid: 9cc6045d447e17843be9d5b16ccfa211, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -409,6 +437,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pollen (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2887169662804121595, guid: 84b1666a2af63bd478296bea9f727729, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -487,6 +519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pollen (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2887169662804121595, guid: 84b1666a2af63bd478296bea9f727729, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -564,6 +600,10 @@ PrefabInstance:
     - target: {fileID: 2887169662804121595, guid: 84b1666a2af63bd478296bea9f727729, type: 3}
       propertyPath: m_Name
       value: Pollen (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887169662804121595, guid: 84b1666a2af63bd478296bea9f727729, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

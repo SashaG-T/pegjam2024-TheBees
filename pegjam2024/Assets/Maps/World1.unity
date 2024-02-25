@@ -547,6 +547,10 @@ PrefabInstance:
       propertyPath: targetPosition
       value: 
       objectReference: {fileID: 1369235045}
+    - target: {fileID: 452494299188295482, guid: 205274e62061a664faa3a3ab0f9582d9, type: 3}
+      propertyPath: workerBeeInstance
+      value: 
+      objectReference: {fileID: 3877430774724905218, guid: 2f62327b4885e5044b57865e93cddccf, type: 3}
     - target: {fileID: 672298580663882608, guid: 205274e62061a664faa3a3ab0f9582d9, type: 3}
       propertyPath: m_Extents.x
       value: 0.93

@@ -3,6 +3,9 @@ using UnityEngine;
 class Hive : MonoBehaviour
 {
     static public Hive instance { get; private set; }
+    static public GameObject WorkerBeeInstance { get; private set; }
+    [SerializeField]
+    private GameObject workerBeeInstance;
 
     [SerializeField]
     private Transform targetPosition;
@@ -11,5 +14,6 @@ class Hive : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        WorkerBeeInstance = workerBeeInstance;
     }
 }

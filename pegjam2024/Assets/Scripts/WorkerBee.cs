@@ -89,8 +89,10 @@ public class WorkerBee : MonoBehaviour
     {
         if (beeCount < Player.MaxBeeCount)
         {
-            GameObject newBee = Instantiate(gameObject, parent);
+            GameObject newBee = Instantiate(Hive.WorkerBeeInstance, parent);
+            newBee.GetComponent<NavMeshAgent>().enabled = false;
             newBee.transform.position = transform.position;
+            newBee.GetComponent<NavMeshAgent>().enabled = true;
         }
     }
 
